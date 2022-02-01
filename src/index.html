@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RRT</title>
+    <!-- styles -->
+
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- script -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <section class="carousel">
+            <div class="cards swiper">
+                <div class="cards-wrap swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card swiper-slide">
+                        <div class="card-content">
+                            <div class="card-slider">
+                                <div class="card-content-slider">
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img card-content-slider__img_active" alt="car" data-card-img='0'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='1'>
+                                    <img src="assets/img/car.jpg" class="card-content-slider__img" alt="car" data-card-img='2'>
+                                    <img src="assets/img/car2.jpg" class="card-content-slider__img" alt="car2" data-card-img='3'>
+                                </div>
+                                <div class="card-content-slider-dots">
+                                    <span class='card-content-slider__dot card-content-slider__dot_active'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                    <span class='card-content-slider__dot'></span>
+                                </div>
+                                <!-- /.card-content-slider -->
+                            </div>
+                            <!-- /. card-slider -->
+                            <div class="card-content-info">
+                                <h3 class="card-content-info__title">
+                                    Mercedes-Benz E-Класс <br> 2017 <br> АТ
+                                </h3>
+                                <!-- /.card-content-info__title -->
+                                <div class="card-content-info-price_block">
+                                    <div class="card-content-info-price_block__price">
+                                        <span class="card-content-info-price_block__old" data-old-price>3 420 000 ₽</span>
+                                        <span class="card-content-info-price_block__new" data-new-price>3 379 000 ₽</span>
+                                    </div>
+                                    <div class="card-content-info-price_block__btns">
+                                        <button class="card-content-info-price_block__btn" id="btn-add-favor">
+                                        <img src="assets/img/svg/star.svg" alt="add to favor">
+                                    </button>
+                                        <button class="card-content-info-price_block__btn" id='btn-info'>
+                                        <img src="assets/img/svg/diagram.svg" alt="info">
+                                    </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-content-info-price_block -->
+                                <div class="card-content-info_block">
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/malfunction-indicador.svg" alt="">
+                                    2 л | 194 л.с.
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/diesel.svg" alt="diesel">
+                                    Дизель
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/4wd.svg" alt="4wd">
+                                    Полный
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/transmission.svg" alt="tarnsmission">
+                                    Автомат
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/tachometer.svg" alt="tachometer">
+                                    81 000 км
+                                </span>
+                                    <span class="card-content-info_block__text">
+                                    <img src="assets/img/svg/peoples.svg" alt="peoples">
+                                    2 владельца
+                                </span>
+
+                                </div>
+                                <!-- /.card-content-info_block -->
+                                <hr class="card-content__line">
+                                <span class="card-content__city">
+                                РРТ-Автомаркет Великий Новгород
+                            </span>
+                                <!-- /.card-content__city -->
+                                <div class="card-content-btns">
+                                    <button class="card-content-btns__btn btn_card_offer" id="btn_offer">Получить предложение</button>
+                                    <button class="card-content-btns__btn btn_card_reservation" id="btn_reservation">Забронировать онлайн</button>
+                                    <button class="card-content-btns__btn btn_card_consultation" id="btn_consultation">Получить консультацию</button>
+                                </div>
+                                <!-- /.card-content-btns -->
+                            </div>
+                            <!-- /.card-content-info -->
+                        </div>
+                        <!-- /.card-content -->
+                    </div>
+                    <!-- /.card -->
+
+
+
+
+
+
+
+
+                </div>
+                <!-- navigation arrow -->
+                <span class="cards-left_arrow cards_arrow "><img src="assets/img/svg/arrow.svg" class="swiper-button-prev" alt="left-arrow"></span>
+                <span class="cards-right_arrow cards_arrow "><img src="assets/img/svg/arrow.svg" class="swiper-button-next" alt="right-arrow"></span>
+                <span class="cards-left_arrow__mob cards_arrow__mob "><img src="assets/img/svg/arrow-mob.svg" class="swiper-button-prev" alt="left-arrow"></span>
+                <span class="cards-right_arrow__mob cards_arrow__mob "><img src="assets/img/svg/arrow-mob.svg" class="swiper-button-next" alt="right-arrow"></span>
+                <!-- paggination -->
+                <div class="cards_pagination">
+                </div>
+            </div>
+            <!-- /.cards -->
+
+        </section>
+    </main>
+    <div class="popup" style="display: none">
+        <div class="popup-wrap">
+            <div class="popup-header">
+                <div class="popup-header__title"></div>
+                <button class="popup-header__close" type="button">X</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

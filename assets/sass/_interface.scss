@@ -1,0 +1,32 @@
+$mainColor: #40AE2A;
+$logoColor: #C32324;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "LatoRegular", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #343A40;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}

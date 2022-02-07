@@ -12580,6 +12580,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 /* harmony import */ var _modules_imageSlider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/imageSlider */ "./src/js/modules/imageSlider.js");
+// use swiper slider to mail slider
 
 
 const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', {
@@ -12624,16 +12625,18 @@ Object(_modules_imageSlider__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// slider in to cards
 const imageSlider = () => {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    card.addEventListener('click', e => {
+    card.addEventListener('mouseover', e => {
       let target = e.target;
-      let card = target.closest('.card');
-      let images = card.querySelectorAll('.card-content-slider__img');
-      let dots = card.querySelectorAll('.card-content-slider__dot');
+      let slide = target.closest('.card');
+      let images = slide.querySelectorAll('.card-content-slider__img');
+      let dots = slide.querySelectorAll('.card-content-slider__dot');
       dots.forEach((dot, index) => {
         dot.addEventListener('click', e => {
+          //if use mouseover - hover effect
           dots.forEach(dot => {
             dot.classList.remove('card-content-slider__dot_active');
           });
